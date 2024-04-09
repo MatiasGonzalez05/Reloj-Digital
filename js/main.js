@@ -139,5 +139,16 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelector(".year").innerHTML = year;
 });
 
+//dot menu toggle
+const dotMenuBtn = document.querySelector(".dot-menu-btn");
+const dotMenu = document.querySelector(".dot-menu");
 
+dotMenuBtn.addEventListener("click", () => {
+    dotMenu.classList.toggle("active");
+});
 
+document.addEventListener("click", (e) => {
+    if(e.target.id !== "active-menu") {
+        dotMenu.classList.remove("active");
+    }
+});

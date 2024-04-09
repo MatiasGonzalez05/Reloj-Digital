@@ -27,7 +27,32 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
 
+.digital-reloj:before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(45deg, #24ff6d, #2f93f1, #ff5e9a);
+    background-size: 200% 200%;
+    top: -5px;
+    left: -5px;
+    bottom: -5px;
+    right: -5px;
+    z-index: -1;
+    filter: blur(40px);
+    animation: glowing 10s ease infinite;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
 }
 
 .time {
@@ -124,11 +149,22 @@ body {
 
 .dot-menu {
     z-index: 999;
+    position: absolute;
+    top: 7px;
+    right: 5px;
     list-style: none;
     background: #353e54;
     padding: 10px 20px;
     border-radius: 5px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.dot-menu.active {
+    visibility: visible;
+    opacity: 1;
 }
 
 .menu-item {
